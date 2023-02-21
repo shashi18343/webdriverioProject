@@ -7,10 +7,10 @@ describe("Login to the V-Tiger application",() => {
                  (await browser.$('input[type="text"]')).setValue("admin")
                  await browser.$("//input[@name='user_password']").setValue("admin")
                 await browser.$("//input[@type='submit']").click()
-                var LeadLink = $('=Leads')
+                let LeadLink = $('=Leads')
                 console.log(LeadLink.getText());
                 console.log(LeadLink.getAttribute('href'));
-                LeadLink.click();
+                await LeadLink.click();
                 await browser.$("//img[@title='Create Lead...']").click();
                 await browser.$('[name="salutationtype"]').selectByVisibleText('Mr.')
                 await browser.$('[name="firstname"]').setValue("SHASHI2")
@@ -19,17 +19,17 @@ describe("Login to the V-Tiger application",() => {
                 await browser.$('#mobile').setValue("7063200000")
                 await browser.$('[name="description"]').setValue("SK2 created")
                 await browser.$('input[title="Save [Alt+S]"]').click()
-                LeadLink.click();
+                await LeadLink.click();
                 var leadName = $('=SHASHI2')
                 console.log(leadName.getText());
                 await expect(leadName).toHaveText('SHASHI2')
                 console.log("verification done for created lead");
-                leadName.click();
+                await leadName.click();
                 await browser.$('input[title="Edit [Alt+E]"]').click()
                 await browser.$('#mobile').clearValue();
                 await browser.$('#mobile').setValue("7063200001")
                 await browser.$('input[title="Save [Alt+S]"]').click()
-                var updatedMobileNum = $('#dtlview_Mobile')
+                let updatedMobileNum = $('#dtlview_Mobile')
                 console.log(updatedMobileNum.getText());
                 await expect(updatedMobileNum).toHaveText('7063200001')
                 console.log("mobile number verified");
