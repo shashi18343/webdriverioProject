@@ -17,7 +17,8 @@ class CalenderPage{
 
     async clickOnSimpleDateTab()
     {
-        await  this.simpleDateTab.click();
+        // await this.simpleDateTab.moveTo();
+        await this.simpleDateTab.click();
     }
     async clickOndropdownDatPicker()
     {

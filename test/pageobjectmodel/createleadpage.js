@@ -1,53 +1,61 @@
+import { expect }from 'chai';
 class CreateLead
 {
-    get clickLead()
+    get clickLead_mbtn()
     {
         return $('=Leads')
     }
-    get clickCreateLead()
+    get clickCreateLead_btn()
     {
         return $('img[src="themes/softed/images/btnL3Add.gif"]')
     }
-    get surName()
+    get surName_Slt()
     {
        return $('[name="salutationtype"]')
     }
-    get firstName()
+    get firstName_TF()
     {
         return  $('[name="firstname"]')
     }
-    get lastName()
+    get lastName_TF()
     {
         return $('[name="lastname"]')
     }
-    get companyName()
+    get companyName_TF()
     {
         return $('[name="company"]')
     }
-    get mobileNo()
+    get mobileNo_TF()
     {
         return $('#mobile')
     }
-    get description()
+    get description_TF()
     {
         return  $('[name="description"]')
     }
-    get saveBtn()
+    get save_Btn()
     {
         return $('input[title="Save [Alt+S]"]')
     }
-
-    async createLead()
+    get verifyName()
     {
-        await this.clickLead.click()
-        await this.clickCreateLead.click()
-        await this.surName.selectByVisibleText('Mr.')
-        await this.firstName.setValue("SHASHIP")
-        await this.lastName.setValue("KUMARP")
-        await this.companyName.setValue("Test Yantra p")
-        await this.mobileNo.setValue("7063200000")
-        await this.description.setValue("SHASHIP created")
-        await this.saveBtn.click()
+        return $("//span[@class='dvHeaderText']")
+    }
+    async creatingNewLead(random)
+    {
+        await this.clickLead_mbtn.click()
+        await this.clickCreateLead_btn.click()
+        await this.surName_Slt.selectByVisibleText('Mr.')
+        await this.firstName_TF.setValue("SHASHIP")
+        await this.lastName_TF.setValue("KUMARP"+random)
+        await this.companyName_TF.setValue("Test Yantra p")
+        await this.mobileNo_TF.setValue("7063200000")
+        await this.description_TF.setValue("SHASHIP created")
+        expect(await this.save_Btn.isDisplayed()).to.be.true
+        await this.save_Btn.click()
+// expect(await (this.verifyName).toBeDisplayed).to.be.true;
+// (await this.verifyName).isDisplayed
+// expect(await this.verifyName.isDisplayed()).to.be.true
 
     }
 }

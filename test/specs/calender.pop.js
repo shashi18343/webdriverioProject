@@ -1,4 +1,4 @@
-import  calenderPage from '../pageobjectmodel/calender.page.js'
+import  calenderPage from '../pageobjects/calender.page.js'
 
 describe("To operate different calender popup",async ()=>{
 beforeEach("OpenApp", async()=>{
@@ -9,7 +9,7 @@ beforeEach("OpenApp", async()=>{
     it("first type calender popup",async ()=>{
 
     await calenderPage.clickOnSimpleDateTab();
-    await (await browser.$('#datepicker')).setValue("02/24/2023")
+    await browser.$("//title[text()='Selenium Practice Datepicker - Default functionality']/../..//input[@id='datepicker']").setValue("02/24/2023")
 
     })
 
