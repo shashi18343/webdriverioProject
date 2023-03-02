@@ -1,10 +1,11 @@
 const { expect } = require("chai")
 
-class crmSetting
+class CrmSetting
 {
     get settings()
     {
-        return $("//img[@src='themes/softed/images/mainSettings.PNG']")
+        // return $("//span[@class='userName']/../../td[4]/img")
+        return $("//span[.=' Administrator']/../following-sibling::td[last()]/img")     //using last index position
     }
     get crmSetting()
     {
@@ -42,13 +43,13 @@ class crmSetting
     async crmWorkflow(desc)
     {
         await this.settings.moveTo();
-        await (await this.crmSetting).click();
+        await this.crmSetting.click();
         await this.workflow.scrollIntoView().click();
-        await (await this.newWorkflow).click();
-        await (await this.workflowPop).click();
-        await (await this.description).setValue(desc)
-        await (await this.saveBtn).click();
-        await (await this.workFlowOpt).scrollIntoView.click();
+        await this.newWorkflow.click();
+        await this.workflowPop.click();
+        await this.description.setValue(desc)
+        await this.saveBtn.click();
+        await this.workFlowOpt.scrollIntoView.click();
 
     }
 
@@ -65,4 +66,4 @@ class crmSetting
 
 }
 
-export default new crmSetting();
+export default new CrmSetting();

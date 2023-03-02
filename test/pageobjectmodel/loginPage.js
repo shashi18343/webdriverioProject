@@ -1,6 +1,6 @@
 import { expect } from "chai";
 
-class login{
+class Login{
     get username()
     {
         return $('input[type="text"]')
@@ -32,4 +32,4 @@ class login{
     }
 }
 
-export default new login()
+export default new Login();

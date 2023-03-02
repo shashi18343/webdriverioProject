@@ -28,7 +28,8 @@ export const config = {
     //
     specs: [
     //    './test/Modules/leads.js'
-        './test/specs/**/*.js'
+        // './test/specs/**/*.js'
+        './test/specs/crmsetting.js'
         // './test/Modules/camporgoppscript.js'
     ],
     // Patterns to exclude.
